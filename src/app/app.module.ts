@@ -2,15 +2,19 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { CoreComponent } from './core/core.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { CardComponent } from './features/pokemones/components/card/card.component';
+import { ListComponent } from './features/pokemones/components/list/list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CoreComponent
+    CardComponent,
+    ListComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
