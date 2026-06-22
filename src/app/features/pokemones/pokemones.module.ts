@@ -13,7 +13,8 @@ import { CardComponent } from './components/card/card.component';
     CommonModule
   ],
   exports: [
-    CardComponent
+    CardComponent,
+    ListComponent
   ]
 })
 export class PokemonesModule { }

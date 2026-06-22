@@ -23,7 +23,7 @@ export class PokemonService {
       switchMap((pokemones) => {
         const pokemonesWithPoke$ = pokemones.map((poke) => this.getPokemonesPoke(poke));
         return forkJoin(pokemonesWithPoke$);
-      }),
+      }), 
     );
   } 
 
@@ -68,11 +68,9 @@ export class PokemonService {
       return {
         name: poke.name,
         abilities: poke.abilities.map((a) => ({ //mapeamos para que solo traiga ability, is_hidden y slot
-          ability: {
-            name : poke.abilities.map((a) => a.ability.name), //mapeamos para que solo traiga name
-          },
-          is_hidden: poke.abilities.map((a) => a.is_hidden),
-          slot: poke.abilities.map((a) => a.slot),
+          ability: { name: a.ability.name},
+          is_hidden: a.is_hidden,
+          slot: a.slot,
       })),
       base_experience: poke.base_experience,
       sprites: {
