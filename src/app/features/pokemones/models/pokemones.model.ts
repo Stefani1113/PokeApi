@@ -1,9 +1,9 @@
-export interface Pokemon{
+export interface PokemonList{
     name: string;
     url: string;
 }
 
-export interface Poke{
+export interface Pokemon{
     name: string;
     url: string;
     abilities:{
