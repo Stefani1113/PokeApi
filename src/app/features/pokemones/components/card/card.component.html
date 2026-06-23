@@ -1,1 +1,9 @@
-<p>card works!</p>
+<p *ngIf="cargando">Cargando...</p>
+<p *ngIf="error">Error al cargar</p>
+
+<ul *ngIf="!cargando && !error">
+    <li *ngFor="let pokemon of (pokemones$ | async)">
+        {{ pokemon.name }}
+        {{ pokemon.url }}
+    </li>
+</ul>

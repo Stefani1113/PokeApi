@@ -19,43 +19,27 @@ export class PokemonService {
 
   getPokemones(): Observable<Pokemon[]> {
     return this.http.get<{ results : Pokemon[]}>(`${this.API_URL}`).pipe(
-      map((results) => this.mapPokemones(results.results)), // Saco el array del objeto results 
+      map((results) => results.results), // traigo array de results {name,url} 
       switchMap((pokemones) => {
         const pokemonesWithPoke$ = pokemones.map((poke) => this.getPokemonesPoke(poke));
-        return forkJoin(pokemonesWithPoke$);
+        return forkJoin(pokemonesWithPoke$); // junta los 20 objetos
       }), 
     );
   } 
 
   /**
-   * trae los datos de Poke y Pokemones
+   * junta en una sola lista los datos de Poke y Pokemones
    * @param poke 
    * @returns 
    */
 
-  getPokemonesPoke(poke: Pokemon): Observable<Pokemon> {
-    return this.http.get<Poke>(`https://pokeapi.co/api/v2/pokemon/${poke.name}`).pipe(
-      map((pokemon) => {
-        return {
-          ...poke,
-          ...this.mapPoke(pokemon), //llamo el mapeo de Poke
-        }
-      })
-    )
-  }
-
-  /**
-   * Mapeo y Retorno nombre y url 
-   * @param pokemones 
-   * @returns 
-   */
-  mapPokemones(pokemones: Pokemon[]) {
-    return pokemones.map((pokemon) => {
-      return {
-        name: pokemon.name,
-        url: pokemon.url,
-      }
-    });
+  getPokemonesPoke(poke: Pokemon): Observable<Poke> {
+    return this.http.get<PokeReq>(`https://pokeapi.co/api/v2/pokemon/${poke.name}`).pipe(
+      map((pokeReq) => ({
+        ...this.mapPoke(pokeReq),
+        url: poke.url, // le paso url de POkemon a pokeReq
+      }))
+    );
   }
 
   /**
@@ -64,18 +48,18 @@ export class PokemonService {
    * @returns 
    */
 
-  mapPoke(poke: Poke) {
+  mapPoke(pokeReq: PokeReq){
       return {
-        name: poke.name,
-        abilities: poke.abilities.map((a) => ({ //mapeamos para que solo traiga ability, is_hidden y slot
+        name: pokeReq.name,
+        abilities: pokeReq.abilities.map((a) => ({ //mapeamos para que solo traiga ability, is_hidden y slot
           ability: { name: a.ability.name},
           is_hidden: a.is_hidden,
           slot: a.slot,
       })),
-      base_experience: poke.base_experience,
+      base_experience: pokeReq.base_experience,
       sprites: {
-        back_default: poke.sprites.back_default,
-        front_default: poke.sprites.front_default,
+        back_default: pokeReq.sprites.back_default,
+        front_default: pokeReq.sprites.front_default,
       }
       }
     };

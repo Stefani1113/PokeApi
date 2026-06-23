@@ -17,4 +17,5 @@ import { CardComponent } from './components/card/card.component';
     ListComponent
   ]
 })
+
 export class PokemonesModule { }
