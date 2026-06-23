@@ -1,1 +1,9 @@
-<app-card></app-card>
+<p *ngIf="cargando">Cargando...</p>
+<p *ngIf="error">Error al cargar</p>
+
+<ul *ngIf="!cargando && !error">
+    <li *ngFor="let pokemon of poke">
+        {{ pokemon.name }}
+        {{ pokemon.url }}
+    </li>
+</ul>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { PokemonService } from '../../services/pokemon.service';
-import { Poke, Pokemon } from '../../models/pokemones.model';
+import { Pokemon } from '../../models/pokemones.model';
 
 @Component({
   selector: 'app-card',
@@ -9,28 +9,6 @@ import { Poke, Pokemon } from '../../models/pokemones.model';
   templateUrl: './card.component.html',
   styleUrl: './card.component.scss'
 })
-export class CardComponent implements OnInit{
-  pokemones$: Observable<Pokemon[]> = of([]);
-  poke: Poke[] = [];
+export class CardComponent{
 
-  constructor(private pokemonService: PokemonService) {}
-  /**
-   * Suscripción a card
-   */
-
-  cargando = true; 
-  error = false;
-
-  ngOnInit(): void {
-    this.pokemonService.getPokemones().subscribe({
-      next: data => {
-        this.poke = data;
-        this.cargando = false;
-      },
-      error: () => {
-        this.error = true;
-        this.cargando = false;
-      }
-    });
-  }
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { PokemonService } from '../../services/pokemon.service';
-import { Poke, Pokemon } from '../../models/pokemones.model';
+import { Pokemon } from '../../models/pokemones.model';
 
 @Component({
   selector: 'app-list',
@@ -10,13 +10,11 @@ import { Poke, Pokemon } from '../../models/pokemones.model';
   styleUrl: './list.component.scss'
 })
 export class ListComponent implements OnInit{
-  pokemones$: Observable<Poke[]> = of([]);
-  poke: Poke[] = [];
+  poke: Pokemon[] = [];
 
   constructor(private pokemonService: PokemonService) {}
-
   /**
-   * Suscipción a lista y estados de carga 
+   * Suscripción a card
    */
 
   cargando = true; 
@@ -32,8 +30,6 @@ export class ListComponent implements OnInit{
         this.error = true;
         this.cargando = false;
       }
-    })
+    });
   }
-
-
 }

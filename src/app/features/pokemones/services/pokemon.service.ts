@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { forkJoin, map, Observable, switchMap } from 'rxjs';
-import { Poke, Pokemon } from '../models/pokemones.model';
+import { PokemonList, Pokemon } from '../models/pokemones.model';
 import { PokeReq } from '../models/poke-req.model';
 
 @Injectable({
@@ -21,8 +21,8 @@ export class PokemonService {
     return this.http.get<{ results : Pokemon[]}>(`${this.API_URL}`).pipe(
       map((results) => results.results), // traigo array de results {name,url} 
       switchMap((pokemones) => {
-        const pokemonesWithPoke$ = pokemones.map((poke) => this.getPokemonesPoke(poke));
-        return forkJoin(pokemonesWithPoke$); // junta los 20 objetos
+        const pokemonesWithPokemon$ = pokemones.map((poke) => this.getPokemonesPokemon(poke));
+        return forkJoin(pokemonesWithPokemon$); // junta los 20 objetos
       }), 
     );
   } 
@@ -33,11 +33,11 @@ export class PokemonService {
    * @returns 
    */
 
-  getPokemonesPoke(poke: Pokemon): Observable<Poke> {
+  getPokemonesPokemon(poke: PokemonList): Observable<Pokemon> {
     return this.http.get<PokeReq>(`https://pokeapi.co/api/v2/pokemon/${poke.name}`).pipe(
       map((pokeReq) => ({
         ...this.mapPoke(pokeReq),
-        url: poke.url, // le paso url de POkemon a pokeReq
+        url: poke.url, // le paso url de Pokemon a pokeReq
       }))
     );
   }
