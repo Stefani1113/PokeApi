@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { PokemonService } from '../../services/pokemon.service';
 import { Pokemon } from '../../models/pokemones.model';
@@ -10,5 +10,7 @@ import { Pokemon } from '../../models/pokemones.model';
   styleUrl: './card.component.scss'
 })
 export class CardComponent{
+
+  @Input() pokemon!: Pokemon;
 
 }

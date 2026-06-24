@@ -1,0 +1,10 @@
+<h3>{{ pokemon.name }}</h3>
+<p>{{ pokemon.url }}</p>
+<div *ngFor = "let a of pokemon.abilities">
+    <p>ability: {{ a.ability.name }}</p>
+    <p>Hidden: {{ a.is_hidden }} </p>
+    <p> Slot: {{ a.slot }}</p>
+</div>
+<p>{{ pokemon.base_experience}}</p>
+<img [src] = "pokemon.sprites.front_default">
+<img [src] = "pokemon.sprites.back_default">
