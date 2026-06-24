@@ -1,4 +1,6 @@
 <p *ngIf="cargando">Cargando...</p>
 <p *ngIf="error">Error al cargar</p>
 
-<app-card *ngFor = "let pokemon of poke" [pokemon] = "pokemon"></app-card>
+<div class="lista-pokemones">
+    <app-card *ngFor = "let pokemon of poke" [pokemon] = "pokemon"></app-card>
+</div>

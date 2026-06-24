@@ -1,15 +1,20 @@
 .contenedor-principal{
     margin: 70px 40px;
     padding: 20px 20px;
-    background-color: rgb(224, 48, 48);
+    background-color: rgba(51, 105, 178);
     border-radius: 20px;
-    box-shadow: 0 12px 40px rgba(62, 7, 7, 0.4)
+    box-shadow: 0 12px 40px rgba(62, 7, 7, 0.4);
+    width: 80%;
+    height: 82%;
 }
 
 .contenedor-uno h3{
     display: flex;
     justify-content: baseline;
     margin-left: 60px;
+    font-size: 50px;
+    margin-right: 20px;
+    color: rgba(255, 202, 2);
 }
 
 .imagenes{
@@ -29,7 +34,7 @@
 .contenedor{
     display: flex;
     flex-direction: row;
-    background-color: rgb(209, 90, 90);
+    background-color: rgb(117, 144, 181);
     border-radius: 20px;
     padding: 10px 10px;
     justify-content: space-between;
@@ -41,22 +46,62 @@
 }
 
 .experiencia{
-    background-color: rgb(209, 90, 90);
+    background-color: rgb(117, 144, 181);
     margin-top: 10px;
     border-radius: 10px;
     text-align: center;
+}
+
+.experiencia h3{
+    color: rgba(255, 202, 2);
+    font-size: 20px;
 }
 
 .habilidades{
-    background-color: rgb(209, 90, 90);
+    background-color: rgb(117, 144, 181);
     margin-top: 10px;
     border-radius: 10px;
     padding: 10px 10px;
     text-align: center;
 }
 
+.habilidades h3{
+    color: rgba(255, 202, 2);
+    font-size: 20px;
+}
+
 .contenedor-dos{
-    background-color: rgb(231, 71, 71);
     padding: 10px 10px;
     border-radius: 5px;
+}
+
+.sprites{
+    padding: 10px 10px;
+    margin: 10px 350px 0 0;
+}
+
+.sprites h3{
+    color: rgba(255, 202, 2);
+}
+
+.imagen-uno{
+    background-color: rgb(117, 144, 181);
+    border-radius: 50px;
+}
+
+.imagen-dos{
+    background-color: rgb(117, 144, 181);
+    margin-left: 20px;
+    border-radius: 50px;
+}
+
+.url{
+    background-color: rgb(117, 144, 181);
+    border-radius: 10px;
+    padding: 10px 10px;
+    margin-top: 20px;
+}
+
+.url p{
+    color: rgba(255, 202, 2);
 }
