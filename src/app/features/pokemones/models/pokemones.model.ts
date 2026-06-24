@@ -17,5 +17,10 @@ export interface Pokemon{
     sprites:{
         back_default: string | null;
         front_default: string | null;
-    }
+        other: {
+            dream_world: {
+                front_default: string | null;
+        };
+    };
+};
 }

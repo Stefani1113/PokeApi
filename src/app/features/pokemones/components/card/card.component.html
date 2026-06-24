@@ -1,10 +1,33 @@
-<h3>{{ pokemon.name }}</h3>
-<p>{{ pokemon.url }}</p>
-<div *ngFor = "let a of pokemon.abilities">
-    <p>ability: {{ a.ability.name }}</p>
-    <p>Hidden: {{ a.is_hidden }} </p>
-    <p> Slot: {{ a.slot }}</p>
+<div class="contenedor-principal">
+
+<div class="contenedor">
+    <div class="imagen-principal">
+        <img [src] = "pokemon.sprites.other.dream_world.front_default">
+    </div>
+    <div class="contenedor-uno">
+        <h3>{{ pokemon.name }}</h3>
+    </div>
 </div>
-<p>{{ pokemon.base_experience}}</p>
-<img [src] = "pokemon.sprites.front_default">
-<img [src] = "pokemon.sprites.back_default">
+
+    <div class="experiencia">
+        <h3>Experiencia Base</h3>
+        <p>{{ pokemon.base_experience}}</p>
+    </div>
+
+<div class="habilidades">
+    <h3>habilidades</h3>
+<div class="lista">
+<div *ngFor = "let a of pokemon.abilities" class="contenedor-dos">
+        <p>{{ a.ability.name }}</p>
+        <p>{{ a.is_hidden ? 'Oculto' : 'Visible' }}</p>
+        <p>{{ a.slot }}</p>
+</div>
+</div>
+</div>
+    <h3>Sprites</h3>
+    <div class="imagenes">
+        <img [src] = "pokemon.sprites.front_default">
+        <img [src] = "pokemon.sprites.back_default">
+    </div>
+        <p>Url: {{ pokemon.url }}</p>
+</div>

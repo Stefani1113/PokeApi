@@ -52,7 +52,7 @@ export class PokemonService {
       return {
       name: pokeReq.name,
       abilities: pokeReq.abilities.map((a) => ({ //mapeamos para que solo traiga ability, is_hidden y slot
-        ability: { name: a.ability.name},
+        ability: {name: a.ability.name},
         is_hidden: a.is_hidden,
         slot: a.slot,
       })),
@@ -60,7 +60,12 @@ export class PokemonService {
       sprites: {
         back_default: pokeReq.sprites.back_default,
         front_default: pokeReq.sprites.front_default,
-      }
+        other: {
+          dream_world: {
+            front_default: pokeReq.sprites.other.dream_world.front_default
+          }
+        }
       }
     };
   }
+}
