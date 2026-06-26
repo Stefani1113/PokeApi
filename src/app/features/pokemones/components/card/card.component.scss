@@ -1,11 +1,21 @@
+.container{
+    border: 2px solid rgba(225, 209, 76);
+}
+
 .contenedor-principal{
     margin: 70px 40px;
     padding: 20px 20px;
-    background-color: rgba(51, 105, 178);
+    background-color: rgba(121, 178, 121);
     border-radius: 20px;
-    box-shadow: 0 12px 40px rgba(62, 7, 7, 0.4);
-    width: 80%;
-    height: 82%;
+    box-shadow: 0 0 0 3px rgba(0, 53, 102);
+    border: 3px solid rgba(178, 146, 0);
+    background: linear-gradient(
+    135deg,
+    rgba(171, 214, 171) 0%,
+    rgba(135, 189, 135) 30%,
+    rgba(109, 171, 109) 65%,
+    rgba(74, 139, 74) 100%
+);
 }
 
 .contenedor-uno h3{
@@ -25,20 +35,25 @@
 
 .lista{
     display: flex;
-    flex-direction: row;
     gap: 20px;
     justify-content: space-between;
-    margin: 0 50px;
+    margin: 0 10px;
+    flex-direction: column;
+    padding: 15px 0;
 }
 
 .contenedor{
     display: flex;
-    flex-direction: row;
-    background-color: rgb(117, 144, 181);
-    border-radius: 20px;
-    padding: 10px 10px;
-    justify-content: space-between;
+    flex-direction: column-reverse;
     align-items: center;
+}
+.imagen-principal{
+    background-color: rgba(181, 215, 181);
+    border-radius: 20px;
+    padding: 25px 143px;
+    border: 2px solid rgba(225, 209, 76);
+    box-shadow: 0 12px 40px rgb(57, 101, 57);
+    margin: 15px 0;
 }
 
 .imagen-principal img{
@@ -46,62 +61,99 @@
 }
 
 .experiencia{
-    background-color: rgb(117, 144, 181);
+    background-color: rgba(78, 131, 78);
+    border: 2px solid rgba(225, 209, 76);
+    box-shadow: 0 12px 40px rgb(57, 101, 57);
     margin-top: 10px;
     border-radius: 10px;
     text-align: center;
+    margin: 15px 0;
 }
 
 .experiencia h3{
-    color: rgba(255, 202, 2);
+    color: rgba(225, 209, 76);
     font-size: 20px;
 }
 
+.experiencia p{
+    font-size: 23px;
+}
+
 .habilidades{
-    background-color: rgb(117, 144, 181);
-    margin-top: 10px;
+    background-color: rgba(78, 131, 78);
+    border: 2px solid rgba(225, 209, 76);
+    box-shadow: 0 12px 40px rgb(57, 101, 57);
     border-radius: 10px;
     padding: 10px 10px;
     text-align: center;
+    margin: 20px 0;
 }
 
 .habilidades h3{
     color: rgba(255, 202, 2);
     font-size: 20px;
+    margin: 5px;
 }
 
 .contenedor-dos{
-    padding: 10px 10px;
     border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: space-between;
+    background-color: rgba(91, 139, 91);
+    padding: 10px 10px;
+    border-radius: 10px;
 }
 
 .sprites{
-    padding: 10px 10px;
-    margin: 10px 350px 0 0;
+    padding: 18px 10px;
+    display: flex;
+    align-items: center;
+    gap: 35px;
 }
 
 .sprites h3{
-    color: rgba(255, 202, 2);
+    color: rgba(184, 210, 184);
+    font-size: 25px;
 }
 
 .imagen-uno{
-    background-color: rgb(117, 144, 181);
+    background-color: rgba(101, 156, 101);
+    border: 2px solid rgba(225, 209, 76);
+    box-shadow: 0 12px 40px rgb(57, 101, 57);
     border-radius: 50px;
 }
 
 .imagen-dos{
-    background-color: rgb(117, 144, 181);
+    background-color: rgba(101, 156, 101);
+    border: 2px solid rgba(225, 209, 76);
+    box-shadow: 0 12px 40px rgb(57, 101, 57);
     margin-left: 20px;
     border-radius: 50px;
 }
 
 .url{
-    background-color: rgb(117, 144, 181);
+    background-color: rgba(54, 99, 54);
     border-radius: 10px;
     padding: 10px 10px;
-    margin-top: 20px;
+    margin-top: 40px;
 }
 
 .url p{
-    color: rgba(255, 202, 2);
+    color: rgba(184, 210, 184);
+}
+
+.hidden{
+    background-color: rgba(102, 95, 118);
+    padding: 1px 10px;
+    border-radius: 30px;
+    color: rgb(224, 214, 245);
+}
+
+.slot{
+    background-color: rgba(138, 155, 66);
+    padding: 1px 15px;
+    border-radius: 30px;
+    color: rgb(210, 255, 8);
 }

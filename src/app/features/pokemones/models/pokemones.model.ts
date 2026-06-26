@@ -22,5 +22,5 @@ export interface Pokemon{
                 front_default: string | null;
         };
     };
-};
+    };
 }

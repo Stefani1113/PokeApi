@@ -12,16 +12,25 @@ import { Pokemon } from '../../models/pokemones.model';
 export class ListComponent implements OnInit{
   poke: Pokemon[] = [];
 
+  cargando = true; 
+  error = false;
+
+  offset = 0;
+
   constructor(private pokemonService: PokemonService) {}
   /**
    * Suscripción a card
    */
 
-  cargando = true; 
-  error = false;
-
   ngOnInit(): void {
-    this.pokemonService.getPokemones().subscribe({
+    this.cargarPokemones()  //llama cargar pokemones 
+}
+
+  /**
+   * metodo de paginación
+   */
+  cargarPokemones(){
+    this.pokemonService.getPokemones(this.offset).subscribe({
       next: data => {
         this.poke = data;
         this.cargando = false;
@@ -31,5 +40,26 @@ export class ListComponent implements OnInit{
         this.cargando = false;
       }
     });
+  }
+
+  /**
+   * carga la siguiente página
+   */
+  siguiente(){
+    this.cargando = true;
+    this.offset = this.offset + 20;
+    this.cargarPokemones()
+  }
+
+
+  /**
+   * Devuelve a la anterior página 
+   */
+  anterior(){
+    if (this.offset > 0){
+    this.cargando = true;
+    this.offset = this.offset - 20;
+    this.cargarPokemones()
+    }
   }
 }

@@ -8,17 +8,18 @@ import { PokeReq } from '../models/poke-req.model';
   providedIn: 'root'
 })
 export class PokemonService {
-  private API_URL = `https://pokeapi.co/api/v2/pokemon?limit=20&offset=0`;
 
   constructor(private http: HttpClient) { }
-
   /**
    * Traigo modelo Pokemon de la API
    * @returns 
    */
 
-  getPokemones(): Observable<Pokemon[]> {
-    return this.http.get<{ results : Pokemon[]}>(`${this.API_URL}`).pipe(
+  getPokemones(offset: number): Observable<Pokemon[]> {
+
+    const url = `https://pokeapi.co/api/v2/pokemon?limit=20&offset=${offset}`; // offset : desde donde empieza 
+
+    return this.http.get<{ results : Pokemon[]}>(`${url}`).pipe(
       map((results) => results.results), // traigo array de results {name,url} 
       switchMap((pokemones) => {
         const pokemonesWithPokemon$ = pokemones.map((poke) => this.getPokemonesPokemon(poke));
